@@ -1,5 +1,5 @@
 # Compile stage
-FROM golang:1.13.8 AS build-env
+FROM golang:1.14.3 AS build-env
 
 ADD . /dockerdev
 WORKDIR /dockerdev
@@ -7,7 +7,7 @@ WORKDIR /dockerdev
 RUN go build -o /server
 
 # Final stage
-FROM debian:buster
+FROM ubuntu:latest
 
 EXPOSE 8000
 
